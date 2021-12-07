@@ -1,7 +1,7 @@
-import React from "react"
-import Link from "next/link"
+import React from "react";
+import Link from "next/link";
 
-const Nav = ({ categories }) => {
+const Nav = ({ global, categories }) => {
   return (
     <div>
       <nav className="uk-navbar-container" data-uk-navbar>
@@ -9,7 +9,7 @@ const Nav = ({ categories }) => {
           <ul className="uk-navbar-nav">
             <li>
               <Link href="/">
-                <a>Strapi Blog</a>
+                <a>{global?.siteName}</a>
               </Link>
             </li>
           </ul>
@@ -23,13 +23,13 @@ const Nav = ({ categories }) => {
                     <a className="uk-link-reset">{category.name}</a>
                   </Link>
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

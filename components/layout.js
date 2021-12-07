@@ -1,10 +1,10 @@
-import Nav from "./nav"
+import Nav from "./nav";
 
-const Layout = ({ children, categories, seo }) => (
+const Layout = ({ children, global, categories }) => (
   <>
-    <Nav categories={categories} />
+    <Nav global={global} categories={categories} />
     {children}
   </>
-)
+);
 
-export default Layout
+export default Layout;
