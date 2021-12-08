@@ -36,10 +36,15 @@ const Events = ({ data }) => {
             const { id, title, date, image, link } = item || {};
             return (
               <div
-                className={`carousel-item${itemIndex === 0 ? " active" : ""}`}
+                className={`carousel-item vh-100 ${
+                  itemIndex === 0 ? " active" : ""
+                }`}
                 key={id}
               >
-                <NextImage className="d-block w-100 h-100" image={image} />
+                <NextImage
+                  className="carousel-image w-100 vh-100"
+                  image={image}
+                />
                 <div className="carousel-container vh-100">
                   <h2 className="animate__animated animate__fadeInDown">
                     <Moment format="DD/MM/YYYY">{date}</Moment>

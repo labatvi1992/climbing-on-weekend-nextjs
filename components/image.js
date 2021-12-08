@@ -15,7 +15,7 @@ const Image = ({ className, image }) => {
       layout="responsive"
       width={image.width}
       height={image.height}
-      objectFit="contain"
+      objectFit="cover"
       src={url}
       alt={alternativeText || ""}
     />

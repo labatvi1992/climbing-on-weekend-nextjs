@@ -1,9 +1,16 @@
-#heroCarousel .carousel-container {
-  position: absolute;
-  a {
-    color: #fff !important;
-    &:hover {
-      text-decoration: underline;
+#heroCarousel {
+  .carousel-item {
+    > div:first-of-type {
+      height: 100vh;
+    }
+    .carousel-container {
+      position: absolute;
+      a {
+        color: #fff !important;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,28 @@
+#header.header-transparent {
+  .logo {
+    h1 {
+      color: rgba(var(--bs-dark-rgb), 0.7) !important;
+    }
+  }
+  .navbar {
+    li {
+      a {
+        color: rgba(var(--bs-dark-rgb), 0.7) !important;
+      }
+    }
+  }
+}
+#header.header-scrolled {
+  .logo {
+    h1 {
+      color: rgba(var(--bs-light-rgb), 1) !important;
+    }
+  }
+  .navbar {
+    li {
+      a {
+        color: rgba(var(--bs-light-rgb), 1) !important;
+      }
+    }
+  }
+}

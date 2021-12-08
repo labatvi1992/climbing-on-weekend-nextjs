@@ -27,19 +27,19 @@ class MyDocument extends Document {
           />
           <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
           <link href="/css/style.css" rel="stylesheet" />
-          <script src="/vendor/purecounter/purecounter.js" async />
-          <script src="/vendor/aos/aos.js" async />
-          <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js" async />
-          <script src="/vendor/glightbox/js/glightbox.min.js" async />
-          <script src="/vendor/isotope-layout/isotope.pkgd.min.js" async />
-          <script src="/vendor/swiper/swiper-bundle.min.js" async />
-          <script src="/vendor/waypoints/noframework.waypoints.js" async />
-          <script src="/vendor/php-email-form/validate.js" async />
+          <script src="/vendor/purecounter/purecounter.js" />
+          <script src="/vendor/aos/aos.js" />
+          <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js" />
+          <script src="/vendor/glightbox/js/glightbox.min.js" />
+          <script src="/vendor/isotope-layout/isotope.pkgd.min.js" />
+          <script src="/vendor/swiper/swiper-bundle.min.js" />
+          <script src="/vendor/waypoints/noframework.waypoints.js" />
+          <script src="/vendor/php-email-form/validate.js" />
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script src="/js/main.js" async />
+          <script src="/js/main.js" />
         </body>
       </Html>
     );
