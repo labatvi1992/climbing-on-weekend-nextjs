@@ -1,15 +1,16 @@
-import { getStrapiMedia } from "../lib/media"
-import NextImage from "next/image"
+import { getStrapiMedia } from "../lib/media";
+import NextImage from "next/image";
 
-const Image = ({ image, style }) => {
-  const { url, alternativeText } = image
+const Image = ({ className, image }) => {
+  const { url, alternativeText } = image;
 
   const loader = () => {
-    return getStrapiMedia(image)
-  }
+    return getStrapiMedia(image);
+  };
 
   return (
     <NextImage
+      className={className}
       loader={loader}
       layout="responsive"
       width={image.width}
@@ -18,7 +19,7 @@ const Image = ({ image, style }) => {
       src={url}
       alt={alternativeText || ""}
     />
-  )
-}
+  );
+};
 
-export default Image
+export default Image;

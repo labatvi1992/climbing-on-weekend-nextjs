@@ -1,0 +1,9 @@
+#heroCarousel .carousel-container {
+  position: absolute;
+  a {
+    color: #fff !important;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

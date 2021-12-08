@@ -1,20 +1,16 @@
 import React from "react";
+import Events from "../components/events";
 import Articles from "../components/articles";
-import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 
-const Home = ({ articles, categories, homepage, global }) => {
+const Home = ({ homepage, events, articles }) => {
   return (
-    <Layout global={global} categories={categories}>
+    <>
       <Seo seo={homepage.seo} />
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{homepage.hero.title}</h1>
-          <Articles articles={articles} />
-        </div>
-      </div>
-    </Layout>
+      <Events data={homepage.events} />
+      <Articles articles={articles} />
+    </>
   );
 };
 
