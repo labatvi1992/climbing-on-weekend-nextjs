@@ -1,14 +1,13 @@
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
+import Link from "next/link";
 import { fetchAPI } from "../../lib/api";
-import Layout from "../../components/layout";
+import { getStrapiMedia } from "../../lib/media";
 import NextImage from "../../components/image";
 import Seo from "../../components/seo";
-import { getStrapiMedia } from "../../lib/media";
+import Categories from "../../components/categories";
 
-const Article = ({ global, article, categories }) => {
-  const imageUrl = getStrapiMedia(article.image);
-
+const Article = ({ article, categories }) => {
   const seo = {
     metaTitle: article.title,
     metaDescription: article.description,
@@ -17,39 +16,73 @@ const Article = ({ global, article, categories }) => {
   };
 
   return (
-    <Layout global={global} categories={categories}>
+    <main id="main">
       <Seo seo={seo} />
-      <div
-        id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-        data-uk-img
-      >
-        <h1>{article.title}</h1>
-      </div>
-      <div className="uk-section">
-        <div className="uk-container uk-container-small">
-          <ReactMarkdown source={article.content} escapeHtml={false} />
-          <hr className="uk-divider-small" />
-          <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-            <div>
-              {article.author.picture && (
-                <NextImage image={article.author.picture} />
-              )}
+      <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-8 entries">
+              <article class="entry entry-single">
+                <div class="entry-img">
+                  <NextImage class="img-fluid" image={article.image} />
+                </div>
+
+                <h2 class="entry-title">{article.title}</h2>
+
+                <div class="entry-meta">
+                  <ul>
+                    <li class="d-flex align-items-center">
+                      <i class="bi bi-person"></i> {article.author.name}
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <i class="bi bi-clock"></i>{" "}
+                      <Moment format="DD/MM/YYYY">
+                        {article.published_at}
+                      </Moment>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="entry-content">
+                  <ReactMarkdown source={article.content} escapeHtml={false} />
+                </div>
+
+                <div class="entry-footer">
+                  <i class="bi bi-folder"></i>
+                  <ul class="cats" style={{ marginLeft: 5 }}>
+                    <li>
+                      <Link href={`/category/${article.category.slug}`}>
+                        {article.category.name}
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
+              <div class="blog-author d-flex align-items-center">
+                {article.author.picture && (
+                  <img
+                    className="rounded-circle"
+                    src={getStrapiMedia(article.author.picture)}
+                    alt=""
+                  />
+                )}
+                <div>
+                  <h4>{article.author.name}</h4>
+                  <ReactMarkdown
+                    source={article.author.description}
+                    escapeHtml={false}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="uk-width-expand">
-              <p className="uk-margin-remove-bottom">
-                By {article.author.name}
-              </p>
-              <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-              </p>
+            <div class="col-lg-4">
+              <Categories categories={categories} />
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </section>
+    </main>
   );
 };
 

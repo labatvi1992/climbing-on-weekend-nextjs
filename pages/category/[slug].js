@@ -1,24 +1,18 @@
 import Articles from "../../components/articles";
 import { fetchAPI } from "../../lib/api";
-import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
-const Category = ({ global, category, categories }) => {
+const Category = ({ category, categories }) => {
   const seo = {
     metaTitle: category.name,
     metaDescription: `All ${category.name} articles`,
   };
 
   return (
-    <Layout global={global} categories={categories}>
+    <main id="main">
       <Seo seo={seo} />
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{category.name}</h1>
-          <Articles articles={category.articles} />
-        </div>
-      </div>
-    </Layout>
+      <Articles articles={category.articles} categories={categories} />
+    </main>
   );
 };
 
