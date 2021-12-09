@@ -1,10 +1,12 @@
 import React from "react";
+import Seo from "../../components/seo";
 import Articles from "../../components/articles";
 import { fetchAPI } from "../../lib/api";
 
 const Blog = ({ articles, categories }) => {
   return (
     <main id="main">
+      <Seo />
       <Articles articles={articles} categories={categories} />
     </main>
   );

@@ -9,32 +9,30 @@ const Card = ({ article }) => {
   const summary = `${content.substring(0, 300)}...`;
   return (
     <>
-      <article class="entry">
-        <div class="entry-img">
+      <article className="entry">
+        <div className="entry-img">
           <NextImage className="img-fluid" image={article.image} />
         </div>
 
-        <h2 class="entry-title">
+        <h2 className="entry-title">
           <Link href={`/article/${article.slug}`}>{article.title}</Link>
         </h2>
 
-        <div class="entry-meta">
+        <div className="entry-meta">
           <ul>
-            <li class="d-flex align-items-center">
-              <i class="bi bi-person"></i> {author?.name}
+            <li className="d-flex align-items-center">
+              <i className="bi bi-person"></i> {author?.name}
             </li>
-            <li class="d-flex align-items-center">
-              <i class="bi bi-clock"></i>{" "}
+            <li className="d-flex align-items-center">
+              <i className="bi bi-clock"></i>{" "}
               <Moment format="DD/MM/YYYY">{published_at}</Moment>
             </li>
           </ul>
         </div>
 
-        <div class="entry-content">
-          <p>
-            <ReactMarkdown source={summary} escapeHtml={false} />
-          </p>
-          <div class="read-more">
+        <div className="entry-content">
+          <ReactMarkdown source={summary} escapeHtml={false} />
+          <div className="read-more">
             <Link href={`/article/${article.slug}`}>Chi tiết...</Link>
           </div>
         </div>

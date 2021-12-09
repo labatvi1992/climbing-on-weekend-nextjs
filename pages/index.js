@@ -1,5 +1,6 @@
 import React from "react";
 import Events from "../components/events";
+import Members from "../components/members";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 
@@ -8,6 +9,9 @@ const Home = ({ homepage }) => {
     <>
       <Seo seo={homepage.seo} />
       <Events data={homepage.events} />
+      <main>
+        <Members data={homepage.members} />
+      </main>
     </>
   );
 };

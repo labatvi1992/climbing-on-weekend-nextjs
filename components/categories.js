@@ -3,19 +3,19 @@ import Link from "next/link";
 
 const Categories = ({ categories }) => {
   return (
-    <div class="sidebar">
-      <h3 class="sidebar-title">Search</h3>
-      <div class="sidebar-item search-form">
+    <div className="sidebar">
+      <h3 className="sidebar-title">Search</h3>
+      <div className="sidebar-item search-form">
         <form action="">
           <input type="text" />
           <button type="submit">
-            <i class="bi bi-search"></i>
+            <i className="bi bi-search"></i>
           </button>
         </form>
       </div>
 
-      <h3 class="sidebar-title">Categories</h3>
-      <div class="sidebar-item categories">
+      <h3 className="sidebar-title">Categories</h3>
+      <div className="sidebar-item categories">
         <ul>
           {categories.map((category) => {
             const { articles } = category || {};

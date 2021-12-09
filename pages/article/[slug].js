@@ -2,7 +2,6 @@ import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import Link from "next/link";
 import { fetchAPI } from "../../lib/api";
-import { getStrapiMedia } from "../../lib/media";
 import NextImage from "../../components/image";
 import Seo from "../../components/seo";
 import Categories from "../../components/categories";
@@ -18,24 +17,24 @@ const Article = ({ article, categories }) => {
   return (
     <main id="main">
       <Seo seo={seo} />
-      <section id="blog" class="blog">
-        <div class="container" data-aos="fade-up">
-          <div class="row">
-            <div class="col-lg-8 entries">
-              <article class="entry entry-single">
-                <div class="entry-img">
-                  <NextImage class="img-fluid" image={article.image} />
+      <section id="blog" className="blog">
+        <div className="container" data-aos="fade-up">
+          <div className="row">
+            <div className="col-lg-8 entries">
+              <article className="entry entry-single">
+                <div className="entry-img">
+                  <NextImage className="img-fluid" image={article.image} />
                 </div>
 
-                <h2 class="entry-title">{article.title}</h2>
+                <h2 className="entry-title">{article.title}</h2>
 
-                <div class="entry-meta">
+                <div className="entry-meta">
                   <ul>
-                    <li class="d-flex align-items-center">
-                      <i class="bi bi-person"></i> {article.author.name}
+                    <li className="d-flex align-items-center">
+                      <i className="bi bi-person"></i> {article.author.name}
                     </li>
-                    <li class="d-flex align-items-center">
-                      <i class="bi bi-clock"></i>{" "}
+                    <li className="d-flex align-items-center">
+                      <i className="bi bi-clock"></i>{" "}
                       <Moment format="DD/MM/YYYY">
                         {article.published_at}
                       </Moment>
@@ -43,13 +42,13 @@ const Article = ({ article, categories }) => {
                   </ul>
                 </div>
 
-                <div class="entry-content">
+                <div className="entry-content">
                   <ReactMarkdown source={article.content} escapeHtml={false} />
                 </div>
 
-                <div class="entry-footer">
-                  <i class="bi bi-folder"></i>
-                  <ul class="cats" style={{ marginLeft: 5 }}>
+                <div className="entry-footer">
+                  <i className="bi bi-folder"></i>
+                  <ul className="cats" style={{ marginLeft: 5 }}>
                     <li>
                       <Link href={`/category/${article.category.slug}`}>
                         {article.category.name}
@@ -59,13 +58,14 @@ const Article = ({ article, categories }) => {
                 </div>
               </article>
 
-              <div class="blog-author d-flex align-items-center">
+              <div className="blog-author d-flex align-items-center">
                 {article.author.picture && (
-                  <img
-                    className="rounded-circle"
-                    src={getStrapiMedia(article.author.picture)}
-                    alt=""
-                  />
+                  <div className="blog-author-img">
+                    <NextImage
+                      className="rounded-circle"
+                      image={article.author.picture}
+                    />
+                  </div>
                 )}
                 <div>
                   <h4>{article.author.name}</h4>
@@ -76,7 +76,7 @@ const Article = ({ article, categories }) => {
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div className="col-lg-4">
               <Categories categories={categories} />
             </div>
           </div>

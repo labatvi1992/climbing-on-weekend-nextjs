@@ -4,10 +4,10 @@ import Categories from "./categories";
 
 const Articles = ({ articles, categories }) => {
   return (
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-8 entries">
+    <section id="blog" className="blog">
+      <div className="container" data-aos="fade-up">
+        <div className="row">
+          <div className="col-lg-8 entries">
             {articles.map((article) => {
               return (
                 <Card
@@ -17,7 +17,7 @@ const Articles = ({ articles, categories }) => {
               );
             })}
           </div>
-          <div class="col-lg-4">
+          <div className="col-lg-4">
             <Categories categories={categories} />
           </div>
         </div>
