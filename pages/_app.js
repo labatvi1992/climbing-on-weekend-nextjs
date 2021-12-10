@@ -11,7 +11,7 @@ import "../scss/main.scss";
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
-  const { global, menu } = pageProps;
+  const { global, menu, categories } = pageProps;
 
   return (
     <>
@@ -21,7 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
       <GlobalContext.Provider value={global}>
         <Header global={global} menu={menu} />
         <Component {...pageProps} />
-        <Footer global={global} />
+        <Footer menu={menu} categories={categories} />
       </GlobalContext.Provider>
     </>
   );
@@ -35,12 +35,13 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
-  const [global, menu] = await Promise.all([
+  const [global, menu, categories] = await Promise.all([
     fetchAPI("/global"),
     fetchAPI("/menu"),
+    fetchAPI("/categories"),
   ]);
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global, menu } };
+  return { ...appProps, pageProps: { global, menu, categories } };
 };
 
 export default MyApp;

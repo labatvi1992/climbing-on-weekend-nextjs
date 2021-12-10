@@ -1181,6 +1181,10 @@ section {
 .portfolio .portfolio-item img {
   transition: all 0.3s ease-in-out;
 }
+.portfolio .portfolio-item .portfolio-image,
+.portfolio .portfolio-item .portfolio-image > div:first-child {
+  height: 250px;
+}
 .portfolio .portfolio-item .portfolio-info {
   opacity: 0;
   position: absolute;

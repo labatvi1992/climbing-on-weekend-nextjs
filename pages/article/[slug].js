@@ -5,6 +5,7 @@ import { fetchAPI } from "../../lib/api";
 import NextImage from "../../components/image";
 import Seo from "../../components/seo";
 import Categories from "../../components/categories";
+import Breadcrumbs from "../../components/breadcrumbs";
 
 const Article = ({ article, categories }) => {
   const seo = {
@@ -17,6 +18,13 @@ const Article = ({ article, categories }) => {
   return (
     <main id="main">
       <Seo seo={seo} />
+      <Breadcrumbs
+        title={article.title}
+        items={[
+          { name: "Trang chủ", slug: "/" },
+          { name: "Bài viết", slug: "/category" },
+        ]}
+      />
       <section id="blog" className="blog">
         <div className="container" data-aos="fade-up">
           <div className="row">

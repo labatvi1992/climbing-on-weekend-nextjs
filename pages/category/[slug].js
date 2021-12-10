@@ -1,4 +1,5 @@
 import Articles from "../../components/articles";
+import Breadcrumbs from "../../components/breadcrumbs";
 import { fetchAPI } from "../../lib/api";
 import Seo from "../../components/seo";
 
@@ -11,6 +12,13 @@ const Category = ({ category, categories }) => {
   return (
     <main id="main">
       <Seo seo={seo} />
+      <Breadcrumbs
+        title={category.name}
+        items={[
+          { name: "Trang chủ", slug: "/" },
+          { name: "Bài viết", slug: "/category" },
+        ]}
+      />
       <Articles articles={category.articles} categories={categories} />
     </main>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
-const Footer = ({ global, categories }) => {
+const Footer = ({ menu, categories }) => {
+  const { items } = menu || {};
   return (
     <>
       <footer
@@ -14,90 +15,61 @@ const Footer = ({ global, categories }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-3 col-md-6 footer-links">
-                <h4>Useful Links</h4>
+                <h4>Liên kết</h4>
                 <ul>
-                  <li>
-                    <i className="bx bx-chevron-right"></i> <a href="#">Home</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">About us</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Services</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Terms of service</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Privacy policy</a>
-                  </li>
+                  {items.map((item) => {
+                    const { id, text, slug } = item || {};
+                    return (
+                      <li key={id}>
+                        <i className="bx bx-chevron-right"></i>{" "}
+                        <Link href={slug}>{text}</Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
               <div className="col-lg-3 col-md-6 footer-links">
-                <h4>Our Services</h4>
+                <h4>Danh mục</h4>
                 <ul>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Development</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Product Management</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Marketing</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Graphic Design</a>
-                  </li>
+                  {categories.map((item) => {
+                    const { id, name, slug } = item || {};
+                    return (
+                      <li key={id}>
+                        <i className="bx bx-chevron-right"></i>{" "}
+                        <Link href={`/category/${slug}`}>{name}</Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
               <div className="col-lg-3 col-md-6 footer-contact">
-                <h4>Contact Us</h4>
+                <h4>Địa chỉ</h4>
                 <p>
-                  A108 Adam Street <br />
-                  New York, NY 535022
-                  <br />
-                  United States <br />
-                  <br />
-                  <strong>Phone:</strong> +1 5589 55488 55
-                  <br />
-                  <strong>Email:</strong> info@example.com
+                  Thung lũng Sáng tạo Quy Nhơn, <br />
+                  P. Ghềnh Ráng, TP. Quy Nhơn, Bình Định
+                  <br /> <br />
+                  <strong>Email:</strong> leonuicuoituan@gmail.com
                   <br />
                 </p>
               </div>
 
               <div className="col-lg-3 col-md-6 footer-info">
-                <h3>About Moderna</h3>
+                <h3>Về chúng tôi</h3>
                 <p>
-                  Cras fermentum odio eu feugiat lide par naso tierra. Justo
-                  eget nada terra videa magna derita valies darta donna mare
-                  fermentum iaculis eu non diam phasellus.
+                  Website được tạo ra từ ý tưởng mong muốn có một kênh riêng cho
+                  các hoạt động của nhóm và là nơi lưu trữ những kỷ niệm đẹp,
+                  những phút giây thư giãn sau nhiều giờ làm việc mệt mỏi...
                 </p>
+                <br />
+                <h3>Phiên bản di động</h3>
                 <div className="social-links mt-3">
-                  <a href="#" className="twitter">
-                    <i className="bx bxl-twitter"></i>
+                  <a href="#" className="android">
+                    <i className="bx bxl-android"></i>
                   </a>
-                  <a href="#" className="facebook">
-                    <i className="bx bxl-facebook"></i>
-                  </a>
-                  <a href="#" className="instagram">
-                    <i className="bx bxl-instagram"></i>
-                  </a>
-                  <a href="#" className="linkedin">
-                    <i className="bx bxl-linkedin"></i>
+                  <a href="#" className="apple">
+                    <i className="bx bxl-apple"></i>
                   </a>
                 </div>
               </div>

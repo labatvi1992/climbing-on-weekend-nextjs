@@ -1,10 +1,16 @@
 #heroCarousel {
+  h2 {
+    margin-bottom: 15px;
+  }
   .carousel-item {
     > div:first-of-type {
       height: 100vh;
     }
     .carousel-container {
       position: absolute;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-bottom: 25px;
       a {
         color: #fff !important;
         &:hover {

@@ -18,6 +18,7 @@ const Image = ({ className, image }) => {
       objectFit="cover"
       src={url}
       alt={alternativeText || ""}
+      unoptimized
     />
   );
 };
