@@ -81,13 +81,11 @@ const Footer = ({ menu, categories }) => {
           <div className="copyright">
             &copy; Copyright{" "}
             <strong>
-              <span>Moderna</span>
+              <span>2021</span>
             </strong>
             . All Rights Reserved
           </div>
-          <div className="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
+          <div className="credits">Leo núi cuối tuần - Website official</div>
         </div>
       </footer>
       <a
