@@ -8,6 +8,12 @@ const Members = ({ data }) => {
     new Swiper(".testimonials-carousel", {
       speed: 400,
       loop: true,
+      effect: "cube",
+      grabCursor: true,
+      cubeEffect: {
+        shadow: false,
+        slideShadows: true,
+      },
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,
@@ -22,25 +28,21 @@ const Members = ({ data }) => {
 
   return (
     <section className="testimonials" data-aos="fade-up">
-      <div className="container">
+      <div className="container-fluid p-0">
         <div className="section-title">
           <h2>{title}</h2>
         </div>
         <div className="testimonials-carousel swiper">
           <div className="swiper-wrapper">
-            {items.map((item) => {
-              const { id, name, description, avatar } = item || {};
+            {items.map((item, itemIndex) => {
+              const { name, description, avatar } = item || {};
               return (
-                <div key={id} className="testimonial-item swiper-slide">
+                <div key={itemIndex} className="testimonial-item swiper-slide">
                   <div className="testimonial-img-container">
                     <NextImage className="testimonial-img" image={avatar} />
                   </div>
                   <h3>{name}</h3>
-                  <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                    {description}
-                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
+                  <p>{description}</p>
                 </div>
               );
             })}

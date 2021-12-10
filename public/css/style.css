@@ -918,11 +918,15 @@ section {
 }
 .testimonials .testimonial-item .testimonial-img-container,
 .testimonials .testimonial-item .testimonial-img {
-  width: 300px;
-  max-width: 300px;
+  width: 300px !important;
+  height: 300px !important;
   border-radius: 50%;
   border: 4px solid #fff;
   margin: 0 auto;
+}
+.testimonials .testimonial-item .testimonial-img-container > div:first-child {
+  width: 300px !important;
+  height: 300px !important;
 }
 .testimonials .testimonial-item h3 {
   font-size: 20px;
@@ -954,6 +958,10 @@ section {
 .testimonials .testimonial-item p {
   font-style: italic;
   margin: 0 auto 15px auto;
+}
+.testimonials .testimonial-item .swiper-slide-shadow-left,
+.testimonials .testimonial-item .swiper-slide-shadow-right {
+  opacity: 0.02 !important;
 }
 .testimonials .swiper-pagination {
   margin-top: 20px;

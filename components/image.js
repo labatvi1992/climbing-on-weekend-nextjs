@@ -1,5 +1,5 @@
-import { getStrapiMedia } from "../lib/media";
 import NextImage from "next/image";
+import { getStrapiMedia } from "../lib/media";
 
 const Image = ({ className, image }) => {
   const { url, alternativeText } = image;
@@ -12,7 +12,6 @@ const Image = ({ className, image }) => {
     <NextImage
       className={className}
       loader={loader}
-      unoptimized
       layout="responsive"
       width={image.width}
       height={image.height}

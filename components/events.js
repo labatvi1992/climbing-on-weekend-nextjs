@@ -14,7 +14,8 @@ const Events = ({ data }) => {
         id="heroCarousel"
         className="container-fluid carousel carousel-fade vh-100 p-0"
         data-bs-ride="carousel"
-        data-bs-interval="3000"
+        data-bs-interval="5000"
+        data-bs-pause="false"
       >
         <div className="carousel-indicators">
           {items.map((item, itemIndex) => {
