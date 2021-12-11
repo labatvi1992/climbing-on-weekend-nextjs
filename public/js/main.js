@@ -100,6 +100,25 @@
   });
 
   /**
+   * Mobile nav toggle
+   */
+  on(
+    "click",
+    ".navbar .item-leaf > a",
+    function () {
+      if (select("#navbar").classList.contains("navbar-mobile")) {
+        select("#navbar").classList.toggle("navbar-mobile");
+        let mobileNav = select(".mobile-nav-toggle");
+        if (mobileNav) {
+          mobileNav.classList.toggle("bi-list");
+          mobileNav.classList.toggle("bi-x");
+        }
+      }
+    },
+    true
+  );
+
+  /**
    * Mobile nav dropdowns activate
    */
   on(

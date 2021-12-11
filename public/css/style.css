@@ -929,7 +929,7 @@ section {
   width: 300px !important;
   height: 300px !important;
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: none;
   margin: 0 auto;
 }
 .testimonials .testimonial-item .testimonial-img-container > div:first-child {
@@ -969,7 +969,7 @@ section {
 }
 .testimonials .testimonial-item .swiper-slide-shadow-left,
 .testimonials .testimonial-item .swiper-slide-shadow-right {
-  opacity: 0.02 !important;
+  opacity: 0.03 !important;
 }
 .testimonials .swiper-pagination {
   margin-top: 20px;
@@ -1211,6 +1211,12 @@ section {
   color: rgba(255, 255, 255, 0.6);
   font-size: 28px;
   transition: 0.3s;
+}
+.portfolio .portfolio-item .portfolio-info .portfolio-lightbox {
+  cursor: pointer;
+}
+.portfolio .portfolio-item .portfolio-info .portfolio-lightbox .bx {
+  font-size: 48px;
 }
 .portfolio .portfolio-item .portfolio-info a i:hover {
   color: white;

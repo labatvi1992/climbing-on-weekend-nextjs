@@ -5,6 +5,7 @@ const Gallery = ({ count, files }) => {
   useEffect(() => {
     GLightbox({
       selector: ".portfolio-lightbox",
+      loop: true,
     });
   }, []);
 
@@ -44,7 +45,7 @@ const Gallery = ({ count, files }) => {
                         data-gallery="portfolioGallery"
                         className="portfolio-lightbox"
                       >
-                        <i className="bx bx-photo-album"></i>
+                        <i className="bx bx-image"></i>
                       </a>
                     </div>
                   </div>

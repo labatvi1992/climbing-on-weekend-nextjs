@@ -19,7 +19,7 @@ const Header = ({ global, menu }) => {
             {items.map((item) => {
               const { id, text, slug } = item || {};
               return (
-                <li key={id}>
+                <li key={id} className="item-leaf">
                   <Link className="active " href={slug}>
                     {text}
                   </Link>
