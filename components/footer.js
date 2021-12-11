@@ -85,7 +85,7 @@ const Footer = ({ menu, categories }) => {
             </strong>
             . All Rights Reserved
           </div>
-          <div className="credits">Leo núi cuối tuần - Website official</div>
+          <div className="credits">Leo núi cuối tuần - Official Website</div>
         </div>
       </footer>
       <a

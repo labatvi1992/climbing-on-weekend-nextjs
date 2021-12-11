@@ -1,11 +1,28 @@
 import App from "next/app";
 import Head from "next/head";
+import Router from "next/router";
 import { createContext } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import "../scss/main.scss";
+
+NProgress.configure({ showSpinner: true });
+
+Router.onRouteChangeStart = () => {
+  NProgress.start();
+};
+
+Router.onRouteChangeComplete = () => {
+  NProgress.done();
+};
+
+Router.onRouteChangeError = () => {
+  NProgress.done();
+};
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
