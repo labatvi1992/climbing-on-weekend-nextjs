@@ -554,6 +554,9 @@ section {
 .breadcrumbs h2 {
   font-size: 28px;
   font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .breadcrumbs ol {
   display: flex;
@@ -564,6 +567,10 @@ section {
 }
 .breadcrumbs ol li + li {
   padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 .breadcrumbs ol li + li::before {
   display: inline-block;
@@ -580,6 +587,7 @@ section {
   }
   .breadcrumbs ol li {
     display: inline-block;
+    vertical-align: middle;
   }
 }
 
