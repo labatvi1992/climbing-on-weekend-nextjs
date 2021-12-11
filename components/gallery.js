@@ -25,7 +25,7 @@ const Gallery = ({ count, files }) => {
           data-aos-easing="ease-in-out"
           data-aos-duration="500"
         >
-          {files.map((item) => {
+          {(files || []).map((item) => {
             const { id, name } = item || {};
             return (
               <div

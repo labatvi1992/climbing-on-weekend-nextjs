@@ -17,13 +17,20 @@ const Home = ({ homepage }) => {
 };
 
 export async function getStaticProps() {
-  // Run API calls in parallel
-  const [homepage] = await Promise.all([fetchAPI("/homepage")]);
-
-  return {
-    props: { homepage },
-    revalidate: 1,
-  };
+  try {
+    // Run API calls in parallel
+    const [homepage] = await Promise.all([fetchAPI("/homepage")]);
+    return {
+      props: { homepage },
+      revalidate: 1,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {},
+      revalidate: 1,
+    };
+  }
 }
 
 export default Home;

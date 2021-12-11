@@ -34,7 +34,7 @@ const Members = ({ data }) => {
         </div>
         <div className="testimonials-carousel swiper">
           <div className="swiper-wrapper">
-            {items.map((item, itemIndex) => {
+            {(items || []).map((item, itemIndex) => {
               const { name, description, avatar } = item || {};
               return (
                 <div key={itemIndex} className="testimonial-item swiper-slide">

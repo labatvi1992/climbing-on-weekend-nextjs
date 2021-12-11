@@ -95,8 +95,12 @@ const Article = ({ article, categories }) => {
 };
 
 export async function getStaticPaths() {
-  const articles = await fetchAPI("/articles");
-
+  let articles = [];
+  try {
+    articles = await fetchAPI("/articles");
+  } catch (error) {
+    console.log(error);
+  }
   return {
     paths: articles.map((article) => ({
       params: {
@@ -108,13 +112,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articles = await fetchAPI(`/articles?slug=${params.slug}`);
-  const categories = await fetchAPI("/categories");
+  try {
+    const articles = await fetchAPI(`/articles?slug=${params.slug}`);
+    const categories = await fetchAPI("/categories");
 
-  return {
-    props: { article: articles[0], categories },
-    revalidate: 1,
-  };
+    return {
+      props: { article: articles[0], categories },
+      revalidate: 1,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: { article: {}, categories: [] },
+      revalidate: 1,
+    };
+  }
 }
 
 export default Article;

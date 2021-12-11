@@ -34,14 +34,19 @@ const MyApp = ({ Component, pageProps }) => {
 MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx);
-  // Fetch global site settings from Strapi
-  const [global, menu, categories] = await Promise.all([
-    fetchAPI("/global"),
-    fetchAPI("/menu"),
-    fetchAPI("/categories"),
-  ]);
-  // Pass the data to our page via props
-  return { ...appProps, pageProps: { global, menu, categories } };
+  try {
+    // Fetch global site settings from Strapi
+    const [global, menu, categories] = await Promise.all([
+      fetchAPI("/global"),
+      fetchAPI("/menu"),
+      fetchAPI("/categories"),
+    ]);
+    // Pass the data to our page via props
+    return { ...appProps, pageProps: { global, menu, categories } };
+  } catch (error) {
+    console.log(error);
+    return { ...appProps, pageProps: {} };
+  }
 };
 
 export default MyApp;

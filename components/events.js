@@ -18,7 +18,7 @@ const Events = ({ data }) => {
         data-bs-pause="false"
       >
         <div className="carousel-indicators">
-          {items.map((item, itemIndex) => {
+          {(items || []).map((item, itemIndex) => {
             return (
               <button
                 key={item.id}
@@ -33,7 +33,7 @@ const Events = ({ data }) => {
           })}
         </div>
         <div className="carousel-inner">
-          {items.map((item, itemIndex) => {
+          {(items || []).map((item, itemIndex) => {
             const { id, title, date, image, link } = item || {};
             return (
               <div

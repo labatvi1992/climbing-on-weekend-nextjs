@@ -18,16 +18,23 @@ const Photos = ({ count, files }) => {
 };
 
 export async function getStaticProps() {
-  // Run API calls in parallel
-  const [count, files] = await Promise.all([
-    fetchAPI("/upload/files/count"),
-    fetchAPI("/upload/files"),
-  ]);
-
-  return {
-    props: { count, files },
-    revalidate: 1,
-  };
+  try {
+    // Run API calls in parallel
+    const [count, files] = await Promise.all([
+      fetchAPI("/upload/files/count"),
+      fetchAPI("/upload/files"),
+    ]);
+    return {
+      props: { count, files },
+      revalidate: 1,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: { count: 0, files: [] },
+      revalidate: 1,
+    };
+  }
 }
 
 export default Photos;

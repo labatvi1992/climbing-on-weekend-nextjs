@@ -25,8 +25,12 @@ const Category = ({ category, categories }) => {
 };
 
 export async function getStaticPaths() {
-  const categories = await fetchAPI("/categories");
-
+  let categories = [];
+  try {
+    categories = await fetchAPI("/categories");
+  } catch (error) {
+    console.log(error);
+  }
   return {
     paths: categories.map((category) => ({
       params: {
@@ -38,13 +42,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const category = (await fetchAPI(`/categories?slug=${params.slug}`))[0];
-  const categories = await fetchAPI("/categories");
-
-  return {
-    props: { category, categories },
-    revalidate: 1,
-  };
+  try {
+    const category = (await fetchAPI(`/categories?slug=${params.slug}`))[0];
+    const categories = await fetchAPI("/categories");
+    return {
+      props: { category, categories },
+      revalidate: 1,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: { category: {}, categories: [] },
+      revalidate: 1,
+    };
+  }
 }
 
 export default Category;
