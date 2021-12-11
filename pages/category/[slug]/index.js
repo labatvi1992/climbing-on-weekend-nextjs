@@ -1,7 +1,7 @@
-import Articles from "../../components/articles";
-import Breadcrumbs from "../../components/breadcrumbs";
-import { fetchAPI } from "../../lib/api";
-import Seo from "../../components/seo";
+import Articles from "../../../components/articles";
+import Breadcrumbs from "../../../components/breadcrumbs";
+import { fetchAPI } from "../../../lib/api";
+import Seo from "../../../components/seo";
 
 const Category = ({ category, categories }) => {
   const seo = {

@@ -1,11 +1,11 @@
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import Link from "next/link";
-import { fetchAPI } from "../../lib/api";
-import NextImage from "../../components/image";
-import Seo from "../../components/seo";
-import Categories from "../../components/categories";
-import Breadcrumbs from "../../components/breadcrumbs";
+import { fetchAPI } from "../../../lib/api";
+import NextImage from "../../../components/image";
+import Seo from "../../../components/seo";
+import Categories from "../../../components/categories";
+import Breadcrumbs from "../../../components/breadcrumbs";
 
 const Article = ({ article, categories }) => {
   const seo = {
